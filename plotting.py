@@ -64,7 +64,7 @@ def annualised_storage_range(api_responses: dict):
         fg.update_yaxes(dict(ticksuffix="%", title='Storage (%)'))
         fg.update_xaxes(dict(title='Week of year'))
 
-    inserts=('2020-12', country_frame['gasDayStartedOn'].head(1).iloc[0].strftime('%Y-%m'),)
+    inserts=( country_frame['gasDayStartedOn'].tail(1).iloc[0].strftime('%Y-%m'),'2020-12',)
 
     fg.update_layout(title_text='Current storage progression vs historic range (from {} to {})'.format(*inserts)
                        )
